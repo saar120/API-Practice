@@ -1,17 +1,29 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   font-family: monospace;
 }
 
 body {
-  background: #1f024c;
+  background: #00263b;
 }
 
-.character-containers {
+.characters-container {
+  padding: 2rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.character {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #6f0000;
+  color: #00a1ab;
+  border-radius: 10px;
 }

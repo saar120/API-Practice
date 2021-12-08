@@ -1,3 +1,24 @@
+const container = document.querySelector(".characters-container");
+
+const generateCharacter = (data) => {
+  // create character
+  const character = document.createElement("div");
+  character.className = "character";
+  const name = document.createElement("h3");
+  name.textContent = `Name: ${data.name}`;
+  character.appendChild(name);
+  const hair = document.createElement("h3");
+  hair.textContent = `Hair Color: ${data.hair}`;
+  character.appendChild(hair);
+  const height = document.createElement("h3");
+  height.textContent = `Height: ${data.height}`;
+  character.appendChild(height);
+  const planet = document.createElement("h3");
+  planet.textContent = `Planet: ${data.planet.name}`;
+  character.appendChild(planet);
+  container.appendChild(character);
+};
+
 const getData = async () => {
   try {
     const data = await (await fetch("https://swapi.dev/api/films/1/")).json();
@@ -14,8 +35,10 @@ const getData = async () => {
         planet: planet,
       });
     }
-    console.log(characters);
-  } catch (e) {}
+    characters.forEach((char) => generateCharacter(char));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 getData();
